@@ -68,6 +68,76 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // キー操作
+  function control(e) {
+    if (e.keyCode === 37) {
+      moveLeft()
+    } else if (e.keyCode === 38) {
+      rotate()
+    } else if (e.keyCode === 39) {
+      moveRight()
+    } else if (e.keyCode === 40) {
+      moveDown()
+    }
+  }
+
+  function moveLeft() {
+    undraw()
+    const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+    if (!isAtLeftEdge) currentPosition -= 1
+    if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+      currentPosition += 1
+    }
+    draw()
+  }
+
+  function moveRight() {
+    undraw()
+    const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
+    if (!isAtRightEdge) currentPosition += 1
+    if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+      currentPosition -= 1
+    }
+    draw()
+  }
+
+  function isAtRight() {
+    return current.some(index => (currentPosition + index + 1) % width === 0)
+  }
+
+  function isAtLeft() {
+    return current.some(index => (currentPosition + index) % width === 0)
+  }
+
+  function checkRotatedPosition(P) {
+    P = currentPosition
+    if ((P+1) % width < 4) {
+      if (isAtRight()) {
+        currentPosition += 1
+        checkRotatedPosition(P)
+      }
+    }
+    else if (P % width > 5) {
+      if (isAtLeft()) {
+        currentPosition -= 1
+        checkRotatedPosition(P)
+      }
+    }
+  }
+
+  function rotate() {
+    undraw()
+    currentRotation++
+    if (currentRotation === current.length) {
+      currentRotation = 0
+    }
+    current = theTetrominoes[random][currentRotation]
+    checkRotatedPosition()
+    draw()
+  }
+  
+  document.addEventListener('keyup', control)
+
   startBtn.addEventListener('click',  () => {
     if (timerId) {
       clearInterval(timerId)
