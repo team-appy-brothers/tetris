@@ -58,7 +58,7 @@ body {
   border: 1px solid white;
 }
 
-.winning-message {
+.result-message {
   display: none;
   position: fixed;
   top: 0;
@@ -73,7 +73,7 @@ body {
   flex-direction: column;
 }
 
-.winning-message button {
+.result-message button {
   font-size: 2rem;
   background-color: white;
   border: 1px solid black;
@@ -82,12 +82,12 @@ body {
   margin-top: 1em;
 }
 
-.winning-message button:hover {
+.result-message button:hover {
   background-color: black;
   color: white;
   border-color: white;
 }
 
-.winning-message.show {
+.result-message.show {
   display: flex;
 }
