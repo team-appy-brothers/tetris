@@ -4,12 +4,11 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .flex {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -18,11 +17,10 @@ body {
   margin-top: 2em;
   height: 30vh;
   font-family: 'Open Sans', sans-serif;
-  margin: 0;
 }
 
 .grid {
-  margin-top: 50px;
+  margin-top: 15px;
   width: 400px;
   height: 800px;
   display: flex;
@@ -43,7 +41,6 @@ body {
 
 
 .mini-grid {
-  margin-left: 50px;
   width: 160px;
   height: 160px;
   display: flex;
@@ -58,36 +55,164 @@ body {
   border: 1px solid white;
 }
 
-.winning-message {
+.result-message {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,.9);
+  inset: 0;
+  background: radial-gradient(circle at center, #222 0%, #000 100%);
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 4rem;
   flex-direction: column;
+  color: #fff;
+  font-size: 3.5rem;
+  text-align: center;
+  z-index: 999;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.winning-message button {
-  font-size: 2rem;
-  background-color: white;
-  border: 1px solid black;
-  padding: .25em .5em;
-  cursor: pointer;
-  margin-top: 1em;
-}
-
-.winning-message button:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-.winning-message.show {
+.result-message.show {
   display: flex;
+}
+
+.result-message div[data-winning-message-text] {
+  animation: popIn 0.5s ease-out;
+  font-weight: bold;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #00f;
+  margin-bottom: 1em;
+}
+
+.result-message button {
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #0ff;
+  padding: 0.5em 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.result-message button:hover {
+  background-color: #0ff;
+  color: black;
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+#start-button {
+  padding: 10px 20px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#start-button:hover {
+  background-color: #333;
+}
+
+#start-button:active {
+  background-color: #555;
+}
+
+#restart-button {
+  padding: 10px 20px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+#restart-button:hover {
+  background-color: #333;
+  color: white;
+}
+
+#restart-button:active {
+  background-color: #555;
+}
+
+.controls {
+  background-color: #f3f3f3;
+  padding: 16px;
+  margin: 20px 20px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+}
+
+.controls h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.controls li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #444;
+}
+
+.controls strong {
+  display: inline-block;
+  width: 70px;
+  color: #000;
+}
+
+.score-display {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  margin-top: 16px;
+  text-align: center;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+#score {
+  padding-left: 8px;
 }
