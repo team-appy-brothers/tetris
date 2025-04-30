@@ -58,36 +58,63 @@ body {
 .result-message {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,.9);
+  inset: 0;
+  background: radial-gradient(circle at center, #222 0%, #000 100%);
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 4rem;
   flex-direction: column;
-}
-
-.result-message button {
-  font-size: 2rem;
-  background-color: white;
-  border: 1px solid black;
-  padding: .25em .5em;
-  cursor: pointer;
-  margin-top: 1em;
-}
-
-.result-message button:hover {
-  background-color: black;
-  color: white;
-  border-color: white;
+  color: #fff;
+  font-size: 3.5rem;
+  text-align: center;
+  z-index: 999;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .result-message.show {
   display: flex;
 }
+
+.result-message div[data-winning-message-text] {
+  animation: popIn 0.5s ease-out;
+  font-weight: bold;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #00f;
+  margin-bottom: 1em;
+}
+
+.result-message button {
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #0ff;
+  padding: 0.5em 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.result-message button:hover {
+  background-color: #0ff;
+  color: black;
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 #start-button {
   padding: 10px 20px;
