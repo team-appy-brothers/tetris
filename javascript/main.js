@@ -102,6 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
     undraw();
     // ミノの位置が左端でない場合にひとつ左に移動
     if (!current.some(index => (currentPosition + index) % width === 0)) currentPosition--;
+    // ミノの左にすでにミノがある場合、ひとつ右に移動
+    if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) currentPosition += 1;
     // ミノの描画
     draw();
   }
@@ -112,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
     undraw();
     // ミノの位置が右端でない場合にひとつ右に移動
     if (!current.some(index => (currentPosition + index) % width === width - 1)) currentPosition++;
+    // ミノの右にすでにミノがある場合、ひとつ左に移動
+    if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) currentPosition -= 1;
     // ミノの描画
     draw();
   }
