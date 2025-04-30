@@ -4,12 +4,11 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .flex {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -18,11 +17,10 @@ body {
   margin-top: 2em;
   height: 30vh;
   font-family: 'Open Sans', sans-serif;
-  margin: 0;
 }
 
 .grid {
-  margin-top: 50px;
+  margin-top: 15px;
   width: 400px;
   height: 800px;
   display: flex;
@@ -43,7 +41,6 @@ body {
 
 
 .mini-grid {
-  margin-left: 50px;
   width: 160px;
   height: 160px;
   display: flex;
@@ -90,4 +87,105 @@ body {
 
 .result-message.show {
   display: flex;
+}
+
+#start-button {
+  padding: 10px 20px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#start-button:hover {
+  background-color: #333;
+}
+
+#start-button:active {
+  background-color: #555;
+}
+
+#restart-button {
+  padding: 10px 20px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+#restart-button:hover {
+  background-color: #333;
+  color: white;
+}
+
+#restart-button:active {
+  background-color: #555;
+}
+
+.controls {
+  background-color: #f3f3f3;
+  padding: 16px;
+  margin: 20px 20px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+}
+
+.controls h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.controls li {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #444;
+}
+
+.controls strong {
+  display: inline-block;
+  width: 70px;
+  color: #000;
+}
+
+.score-display {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  margin-top: 16px;
+  text-align: center;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+#score {
+  padding-left: 8px;
 }
