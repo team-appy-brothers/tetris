@@ -1,4 +1,8 @@
 # tetris
+
+# URL
+- https://team-appy-brothers.github.io/tetris/
+
 # テトリス要件定義
 
 ## ロジック
