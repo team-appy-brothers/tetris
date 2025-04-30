@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // ミノの描画
       draw();
       // ミノが落ちる処理を1秒ごとに繰り返す
-      timerId = setInterval(moveDown, 10);
+      timerId = setInterval(moveDown, 1000);
       // 次のミノをランダムに選ぶ
       nextRandom = Math.floor(Math.random() * theTetrominoes.length);
     }
